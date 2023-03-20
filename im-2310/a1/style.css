@@ -1,0 +1,55 @@
+/* set default fint and margin*/
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+
+h1 {
+    max-width: fit-content;
+    font-size: 3rem;
+    margin: 25px auto;
+    margin-bottom: 50px;
+    font-family: 'work sans';
+    
+}
+
+h2 {
+   text-align: left;
+   position:relative;
+   margin: 20px auto;
+   padding: 10px;
+   color:black;
+   font-family:Arial, Helvetica, sans-serif;
+}
+
+
+
+
+h3 {
+    font-size:1.5rem;
+    margin: 10px auto;
+    padding: 10px;
+    border-style: double;
+    border-color: #e2d5c0;
+    border-width: 0 0 3px 0;
+}
+
+h4 {
+    font-size:1rem;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+p{
+    margin: 10px;
+    font-size: 1rem;
+    text-align: left;
+    padding: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+div{
+    margin:auto 10%;
+}
