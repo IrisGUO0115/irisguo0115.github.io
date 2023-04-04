@@ -1,0 +1,89 @@
+/*In this project, I decided to use a limited gradient color scheme to create a sunrise atmosphere. 
+First, I researched different combinations of colors that resemble a sunrise, and then I chose complementary colors, 
+such as blue and orange, as well as neutral colors, like beige and cream, as my color themes. 
+Complementary colors are colors that are opposite each other on the color wheel and create a high-contrast and bright effect, 
+while neutral colors are subtle and create a balanced and constant changing color trend.
+
+I chose these colors specifically to create a fresh and comfortable natural environment, 
+which would make the viewer feel calm and relaxed. Secondly, I used linear-gradient and radial-gradient techniques to fill the color, 
+creating a more realistic effect, and following a real sunrise presentation. Additionally, through my color research, 
+I chose warm colors, including orange, beige, and neutral shades, to create an energetic and positive effect 
+because sunrise represents freshness, vigor, and vitality.
+
+For the background color, I used blue by referencing reality, and I incorporated mid-saturation colors to make the viewer feel calm. 
+Lowering the saturation of color can have a "muting" or calming effect, which contrasts well with the bright orange and beige hues, 
+highlighting the core elements of the piece.
+
+I chose not to use borders in each section to make it more harmonious and create a natural transition between colors throughout the project
+
+References: 
+Mollica, P., 2013. Color Theory: An essential guide to color-from basic principles to practical applications (Vol. 53). Walter Foster.
+
+Rocheleau, Jake, 2020. Basics Behind Color Theory for Web Designer. 
+Accessible via https://www.hongkiat.com/blog/basics-behind-color-theory-for-web-designer/ <viewed 4 April 2023>
+
+
+Unknown author, color of sunrise, image, viewed 3 April 2023. https://colorpalettes.net/tag/colour-of-sunrise/.*/
+
+
+
+body { 
+  background-color:#ffffff;
+
+}
+.container {  
+    display: grid;
+    margin: 20px auto;
+    height:100vh;
+    width:71vh;
+    background-color: #ffffff;
+    grid-template-columns: 1fr 0.6fr 2fr 0.7fr;
+    grid-template-rows: 2.2fr 0.5fr 1.1fr 1.1fr 1.7fr 0.9fr 1fr;
+    gap: 14px 7px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "A1 A1 A2 A2"
+      "A1 A1 A3 A3"
+      "A1 A1 A3 A3"
+      "A4 A5 A5 A6"
+      "A4 A5 A5 A6"
+      "A7 A7 A7 A7"
+      "A7 A7 A7 A7";
+  }
+  
+  .A1 {
+     grid-area: A1; 
+     background: linear-gradient(#659dbd,#daad86,#fbeec1);
+    }
+  
+  
+  .A2 { 
+    grid-area: A2; 
+    background: linear-gradient(#659dbd 30%,#daad86);
+  }
+  
+  .A3 {
+     grid-area: A3; 
+     background: linear-gradient(#daad86 30%,#fbeec1);
+    }
+  
+  .A4 { 
+    grid-area: A4; 
+    background: linear-gradient(to right,#daad86 5%,#fbeec1);
+  }
+  
+  .A5 { 
+    grid-area: A5;
+    background: radial-gradient(#f99740 25%,#fbeec1);
+  }
+  
+  .A6 { 
+    grid-area: A6; 
+    background: linear-gradient(to left,#daad86 5%,#fbeec1);
+  }
+  
+  .A7 { 
+    grid-area: A7;
+    background: linear-gradient(#fbeec1,#daad86,#659dbd);
+    
+   }
