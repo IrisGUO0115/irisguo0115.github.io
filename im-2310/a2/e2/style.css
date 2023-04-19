@@ -1,0 +1,163 @@
+/* z-index order */
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
+/* https://lospec.com/palette-list/1bit-monitor-glow */
+/* you're welcome to change the colours if you want or any of the other general page style */
+:root{
+  --col-01:#F9FBFF;
+  --col-02:#333333;
+  --col-03:#F9FBFF;
+  --col-04:#b6e878;
+  --border: 1px solid var(--col-02);
+  
+} 
+
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--col-01);
+  color: var(--col-02);
+  padding: 2vw;
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  font-style:italic;
+  
+}
+
+
+/*
+  i've set up a basic flexbox for each recipe container - you might want to change some of the 
+  flex properties here on the container or on the individual flex items depending on how you want to style them
+*/
+
+.RecipeMain {
+  display: grid;
+  grid-template-columns: 400px 400px 400px 400px;
+  text-align: center;
+  border-style: no var(--border);
+  
+  
+  
+}
+
+.RecipeBox{
+  border: solid;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  width: 350px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.FilterSection{
+  
+
+}
+
+.FilterBox{
+}
+
+.FilterButton{
+ border:0cap;
+}
+
+.SelectedFilter{
+  color:#228c22;
+  font-style: italic;
+  
+}
+
+.RecipeLink{
+ font-size: large;
+}
+
+.RecipeName{
+ color:#e46f1c;
+ font-weight:900;
+}
+
+.Author{
+
+}
+
+.RecipeImageContainer{
+ 
+}
+
+.RecipeImg{
+ justify-self: center;
+ margin: 10px auto;
+ width: 85%;
+ height: 85%;
+ 
+}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+a:visited {
+  color: #228c22;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(118, 59, 213);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.Attribution{
+
+}
+
+.Publisher{
+
+}
+
+.Cuisine{
+
+}
+
+.TimeToCook{
+
+}
+
+.SkillLevel{
+
+}
+
+.Course{
+
+}
+
+.Servings{
+
+}
+
+.Dietary{
+
+}
+
+.DatePublished{
+
+}
+
+.DateUpdated{
+
+}
+
+.SpecialEquipment{
+
+}
