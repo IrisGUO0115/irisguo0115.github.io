@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 
+<!-- 
+
+  PROVIDE MEANINGFUL FEEDBACK TO THE FOLLOWING ELEMENTS:
+  1) <button> with the id of load-link on the loading page (index.html)
+  2) <div> with the id of load-throbber on the loading page (index.html)
+  3) <li> inside of the <ol> inside of the <nav> on the information page (hosono.html)
+  4) <button> with the id of mode-button on the information page (hosono.html)
+  5) switchModes() function - hint you can add a transition CSS property to the <body> and it will be inherited 
+     by all the elements inside, so when custom CSS variables are changed it will apply transition
+
+-->
+<!-- In this project, I tried out some things in HTML, CSS, and JS. First, I made a plan of what I wanted to change on the webpage, like the loading area, light and dark mode switch, menu bar, and back to top button. 
+  Then, I looked at some other websites to see how they did these things well, and also used the Lospec website to pick some colors. I chose colors that were not too bright because 
+  I wanted the website to feel calm and relaxing to read.
+
+I created a loading function with a button that starts a progress bar that takes 10 seconds to complete. The button is labeled "click to load page" to guide users. 
+The progress bar shows how much of the page has loaded and how much is remaining. If the progress bar stops halfway, there's a problem with the website and users should refresh the page. 
+I chose a pink color for the button and progress bar to make them stand out and be easy to notice.
+
+On the second page of this website, I added a menu bar at the top of the page. There are six options in the menu displayed in a block format to make the page look organized. 
+To distinguish the menu from the rest of the content, I used italic font style. When users hover over each menu option, a different colored line appears underneath it. 
+This helps users identify which menu option they are hovering over. I used two shades of pink for the hover effect to create contrast and make it easier for users to click on the menu options.
+
+I added a switch button to allow users to switch between light mode and dark mode. I noticed that many other websites also use this switch button to represent this function. 
+The button is positioned in a sticky location so users can easily switch modes from anywhere on the page without having to scroll back to the top. This makes it more convenient and user-friendly 
+for people who are reading the bottom part of the page.
+
+The default mode for the webpage is lightmode and the button that allows users to switch to darkmode is pink in color. When the user switches to darkmode, the button color changes to grey. 
+Similarly, the background color changes from beige to grey to indicate which mode the user is in.The switch button is designed to resemble a home light switch button, making it easy for users to understand its function. 
+Additionally, I relocated the ‘TOP’ function button from the bottom to the right side and 50px away from the bottom, making it more visible and accessible for users. 
+The sticky position also makes it easy for users to navigate the page, even when they scroll to other parts of the website.
+
+All of these design changes were intentionally made to improve the user experience for those interacting with the website. -->
+
 <html lang="en">
 
   <head>
 
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <script src="script.js"></script>
+    <title>Loading Page</title>
+
+    <script src="./fakeLoad.js" defer></script>
 
   </head>
 
-  <body>
+  <body id="load-body">
 
-    <h1>This is a test</h1>
-
-    
+      <h1>Haruomi Hosono</h1>
+      <!--
+        Typically I'd use an <a> here but as we're faking a load time I'm using a <button> instead.  If it was an 
+        <a> I would leave off the target attribute so that it would redirect the current tab.
+      -->
+      <!--
+        The function loadPageAfterDelay() is declared in the file fakeLoad.js - it takes a number value that sets the 
+        amount of time it takes in ms and a url to redirect to.
+      -->
+      <button id="load-link" onclick="loadPageAfterDelay(10000,'./hosono.html')">Click to Load Page</button>
+      <!--
+        This is a div we're using for the throbber - if we wanted to do a % based loading bar there is an element 
+        called <progress> but as this one is just indicating a wait rather than providing direct feedback on progress I've 
+        opted for using a <div>.
+      -->
+      <div id="progress-bar-container"> 
+         <div id="progress-bar"></div>
+      </div>
   </body>
 
-</html>    
+</html>

@@ -1,0 +1,322 @@
+/*
+  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
+  works for both.
+*/
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root{
+  /* first two colours come from Kuroi's Manga Pallete Palette */
+  /* https://lospec.com/palette-list/manga-pallete */
+  --col-01:#171219;
+  --col-02:#f2fbeb;
+  --col-03:#ecb49f;
+  --col-04:#bb6566;
+  --col-05:#f7f0e9;
+  --col-06:#e59f99;
+  --col-07:#7b8497;
+  --col-08:#7e85a8;
+  --col-09:#121212;
+   font-size: 16px;
+  /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-05);
+  color: var(--col-01);
+  transition: 5s; /*change the time reasonable */
+  
+}
+.nav {
+  margin-top: 1rem;
+  position:relative;
+  width: 100%;
+  height: 70px;
+  background-color: var(--nav-background-color);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.nav ul{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: var(--col-01);
+  align-items: center;
+  right: 5%;
+  list-style: none;
+}
+
+.nav ul .nav-box{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: calc((100% / 6)*1);
+  height: 10px;
+  border-radius: 2px;
+  transition: .5s;
+}
+
+.nav ul li{
+  width: 100%;
+  text-align: center;
+}
+.nav ul li a{
+  color:var(--col-01);
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  font-style: italic;
+}
+.nav ul li:nth-child(1):hover~.nav-box{
+  left:calc(100% / 6 *0);
+  background-color:var(--col-03);
+}
+.nav ul li:nth-child(2):hover~.nav-box{
+  left:calc(100% / 6 *1);
+  background-color:var(--col-04);
+}
+.nav ul li:nth-child(3):hover~.nav-box{
+  left:calc(100% / 6 *2);
+  background-color:var(--col-03);
+}
+.nav ul li:nth-child(4):hover~.nav-box{
+  left:calc(100% / 6 *3);
+  background-color: var(--col-04);
+}
+.nav ul li:nth-child(5):hover~.nav-box{
+  left:calc(100% / 6 *4);
+  background-color:var(--col-03);
+}
+.nav ul li:nth-child(6):hover~.nav-box{
+  left:calc(100% / 6 *5);
+  background-color: var(--col-04);
+}
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+#container{
+  display:sticky;
+  flex-direction: column;
+  justify-content:right;
+  align-items: center;
+  float: right;
+  /* note the use of position: sticky to keep the button on the page even with scrolling */
+  position: sticky;
+  top: 1rem;
+}
+.switch{
+  width: 60px;
+  height: 34px;
+  position:sticky;
+  display: inline-block;
+}
+.switch input{
+  display: none;
+}
+.slider{
+  position: absolute;
+  cursor: pointer;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  background: var(--col-06);
+  border-radius: 34px;
+  transition: 0.4s; 
+}
+.slider::before{
+  content:'';
+  position:absolute;
+  left: 4px;
+  height: 26px;
+  width: 26px;
+  bottom: 4px;
+  background-color:#fff;
+  border-radius: 50%;
+  transition: 0.4s; 
+}
+input:checked + .slider{
+  background-color:var(--col-07);
+}
+input:checked + .slider::before{
+  transform: translateX(26px);
+}
+.dark-mode {
+  background:var(--col-09);
+}
+.dark-mode h1{
+  color: #f7f0e9;
+}
+
+
+/* code for loading page */
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: cycleColour 2s infinite; 
+}
+#load-link{
+  line-height: 1rem;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  color:var(--col-05);
+  background-color:var(--col-04);
+  display: block;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#progress-bar-container{
+  display: none;
+  align-items:center;
+  justify-content:center;
+  height: 1rem;
+}
+#progress-bar{
+  position:relative;
+  width: 600px;
+  height: 20px;
+  border-radius: 20px;
+  overflow:hidden;
+  background:#fff;
+  border: 2px solid var(--col-04);
+}
+
+#progress-bar::before{
+  content:"";
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  transform:scaleX(0);
+  transform-origin: left center;
+  background-color:var(--col-04);
+  animation: 10s progress ease-out forwards;
+}
+
+.top {
+  width: 70px;
+  height: 30px;
+  position: fixed;
+  bottom: 50px;
+  left: 90%;
+  border-radius: 20px;
+  border: none;
+  color:var(--col-04);
+  font-weight: bold;
+  cursor: pointer;
+}
+  
+  /* we also initially set display to none so it only shows once the link is clicked */
+
+@keyframes progress {
+  to{
+    transform:scaleX(1);
+  }
+  to{
+    width:100%;
+  }
+}
+/* Media Queries */
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
