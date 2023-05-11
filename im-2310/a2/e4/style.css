@@ -1,0 +1,227 @@
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+/* I added a new feature to the music website. After looking at other video websites, I noticed that the most popular feature is the fullscreen button. 
+Since this music website also has videos, I added a fullscreen button to make it easy for users to view the video in fullscreen mode.
+I also added a hover effect to the fullscreen button. When users hover over the button, a new icon appears with an orange outline to remind users that they can click it to enter fullscreen mode. 
+The new icon also has a grey background to make it stand out more.
+
+To make the video player fit nicely on the webpage, I added a 20px margin at the top. I also used a radial-gradient background color and created an animation effect using CSS. 
+Because the video content is meant to flow around with the music, I added a color movement animation to the background. This creates an effect where the background moves around with the video, 
+making it more engaging for users.
+
+To achieve this effect, I researched different tutorials and chose a color palette that matches the video's colors. The video mainly uses pink and purple, so I used purple, pink, orange, and yellow 
+in the background to match the video content.
+
+All of these details are intended to improve the website's aesthetics and provide a better user experience.
+ */
+
+
+
+
+
+/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
+/* https://lospec.com/palette-list/1bit-monitor-glow */
+/* you're welcome to change the colours if you want or any of the other general page style */
+:root{
+  --col-01:#222323;
+  --col-02:#f0f6f0;
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+  --col-05:#bcbdbc;
+  --col-06:#6f6f6f;
+  --border: 1px solid var(--col-02);
+}
+
+body{
+  margin:0;
+  min-height: 100vh;
+  background-color: #e493d0;
+  background-image:
+   radial-gradient(closest-side,rgba(235,105,78,1),rgba(235,105,78,0)),
+   radial-gradient(closest-side,rgba(181,122,218,1),rgba(181,122,218,0)),
+   radial-gradient(closest-side,rgba(254,234,131,1),rgba(254,234,131,0)),
+   radial-gradient(closest-side,rgba(170,142,245,1),rgba(170,142,245,0)),
+   radial-gradient(closest-side,rgba(248,192,147,1),rgba(248,192,147,0));
+  background-size: 
+   130vmax 130vmax,
+   80vmax 80vmax,
+   90vmax 90vmax,
+   110vmax 110vmax,
+   90vmax 90vmax;
+  background-position:
+   -80vmax -80vmax,
+   60vmax -30vmax,
+   10vmax 10vmax,
+   -30vmax -10vmax,
+   50vmax 50vmax;
+  background-repeat: none;
+  animation: 8s movement linear infinite;
+}
+@keyframes movement {
+  0%, 100% {
+    background-size: 
+   130vmax 130vmax,
+   80vmax 80vmax,
+   90vmax 90vmax,
+   110vmax 110vmax,
+   90vmax 90vmax;
+  background-position:
+   -80vmax -80vmax,
+   60vmax -30vmax,
+   10vmax 10vmax,
+   -30vmax -10vmax,
+   50vmax 50vmax;
+  }
+  25% {
+    background-size: 
+    100vmax 100vmax,
+    90vmax 90vmax,
+    100vmax 100vmax,
+    90vmax 90vmax,
+    60vmax 60vmax;
+   background-position:
+    -60vmax -90vmax,
+    50vmax -40vmax,
+    0vmax 20vmax,
+    -40vmax -20vmax,
+    40vmax 60vmax;
+  }
+  50% {
+    background-size: 
+    80vmax 80vmax,
+    110vmax 110vmax,
+    80vmax 80vmax,
+    60vmax 60vmax,
+    80vmax 80vmax;
+   background-position:
+    -50vmax -70vmax,
+    40vmax -30vmax,
+    10vmax 0vmax,
+    20vmax 10vmax,
+    30vmax 70vmax;
+  }
+  75% {
+    background-size: 
+    90vmax 90vmax,
+    90vmax 90vmax,
+    100vmax 100vmax,
+    90vmax 90vmax,
+    70vmax 70vmax;
+   background-position:
+    -50vmax -40vmax,
+    50vmax -30vmax,
+    20vmax 0vmax,
+    -10vmax 10vmax,
+    40vmax 60vmax;
+}
+}
+
+.video-player-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+/* becuase I want to overlay the play icon on the video they need to be in their own wrapper */
+.video-element-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#videoElement{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+#videoPlayOverlay{
+  width: 8rem;
+  height: 8rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  opacity: 0.6;
+  display: none;
+}
+
+.video-controls-wrapper{
+  display: flex;
+  justify-content: center;
+}
+/* this overwrites the above display:flex - something which is then undone when the JS loads */
+#controlsWrapper{
+  display: none;
+}
+
+.video-control-button{
+  width: 2rem;
+  height: 2rem;
+  padding: .1rem;
+  border: none;
+  cursor: pointer;
+}
+.video-control-button:hover{
+  background-color: var(--col-05);
+}
+.video-control-button:active{
+  background-color: var(--col-06);
+}
+.button-icon{
+  pointer-events: none;
+}
+
+#playButton{
+  background-image: url('./icons/play.svg');
+}
+
+#muteButton{
+  background-image: url('./icons/mute.svg');
+}
+#fullscreenButton{
+  background-image: url('./icons/fullScreen.svg');
+}
+#fullscreenButton:hover{
+  background-image: url('./icons/fullScreencolor.svg');
+}
+.video-progress-bar{
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 2rem;
+  flex-grow: 1;
+  cursor: pointer;
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-02) inset;
+}
+::-moz-progress-bar {
+  background-color: var(--col-02);
+}
+
+::-webkit-progress-bar {
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-02) inset;
+}
+::-webkit-progress-value {
+  background-color: var(--col-02);
+}
+
+.timeline-loading{
+  background-image: -moz-repeating-linear-gradient(45deg, var(--col-03) 0% 2%, transparent 2% 4%, red 4%);
+  background-size: 200% 100%;
+  animation: loadingAnimation 4s linear infinite;
+}
+@keyframes loadingAnimation {
+  100%{
+    background-position: 50% 0%;
+  }
+}
